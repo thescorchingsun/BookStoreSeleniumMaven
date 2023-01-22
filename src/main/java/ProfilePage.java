@@ -10,20 +10,21 @@ public class ProfilePage {
 
     private By logOutBtn = By.id("submit");
     private By gotoBookStoreBtn = By.id("gotoStore");
+    private By getUserNameText = By.xpath ("//div[@id='books-wrapper']/div[3]/label[text()='Herrera9863']");
 
-    public MainBookStorePage clickGotoBookStore() {
+    public MainStorePage clickGotoBookStore() {
         driver.findElement(gotoBookStoreBtn).click();
-        return new MainBookStorePage(driver);
+        return new MainStorePage(driver);
     }
 
-    public LoginPage clickLogOutBtn() {
+    public LogInPage clickLogOutBtn() {
         driver.findElement(logOutBtn).click();
-        return new LoginPage(driver);
+        return new LogInPage(driver);
     }
 
-
-
-
+    public String GetUserNameText() {
+        return driver.findElement(getUserNameText).getText();
+    }
 
 
 }

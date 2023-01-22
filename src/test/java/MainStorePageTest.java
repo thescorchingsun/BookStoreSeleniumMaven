@@ -4,33 +4,31 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import java.time.Duration;
 
-import java.util.concurrent.TimeUnit;
-
-public class MainBookStorePageTest {
+public class MainStorePageTest {
 
     private WebDriver driver;
-    private MainBookStorePage mainBookStorePage;
+    private MainStorePage mainStorePage;
 
     @BeforeTest
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:/Testing programs/ChromeDriver/chromedriver_win32/chromedriver.exe");
         driver = new ChromeDriver();
-       // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/books");
-        mainBookStorePage = new MainBookStorePage(driver);
+        mainStorePage = new MainStorePage(driver);
     }
 
     @Test
-    public void login() {
-        LoginPage loginPage = mainBookStorePage.clickLogin();
+    public void loginTest() {
+        LogInPage loginPage = mainStorePage.clickLogInOnMainPage();
         String headingH2 = loginPage.GetH2Text();
         String headingH5 = loginPage.GetH5Text();
         Assert.assertEquals(headingH2, "Welcome,");
         Assert.assertEquals(headingH5, "Login in Book Store");
     }
-
 
 
     @AfterTest
