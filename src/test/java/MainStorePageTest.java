@@ -9,7 +9,7 @@ import java.time.Duration;
 public class MainStorePageTest {
 
     private WebDriver driver;
-    private MainStorePage mainStorePage;
+    private BookPage mainStorePage;
 
     @BeforeTest
     public void setUp() {
@@ -18,7 +18,7 @@ public class MainStorePageTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/books");
-        mainStorePage = new MainStorePage(driver);
+        mainStorePage = new BookPage(driver);
     }
 
     @Test
@@ -29,7 +29,6 @@ public class MainStorePageTest {
         Assert.assertEquals(headingH2, "Welcome,");
         Assert.assertEquals(headingH5, "Login in Book Store");
     }
-
 
     @AfterTest
     public void tearDown() {

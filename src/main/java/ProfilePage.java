@@ -8,13 +8,13 @@ public class ProfilePage {
         this.driver = driver;
     }
 
-    private By logOutBtn = By.id("submit");
+    private By logOutBtn = By.xpath("//div/button[@id='submit']");
     private By gotoBookStoreBtn = By.id("gotoStore");
     private By getUserNameText = By.xpath ("//div[@id='books-wrapper']/div[3]/label[text()='Herrera9863']");
 
-    public MainStorePage clickGotoBookStore() {
+    public BookPage clickGotoBookStore() {
         driver.findElement(gotoBookStoreBtn).click();
-        return new MainStorePage(driver);
+        return new BookPage(driver);
     }
 
     public LogInPage clickLogOutBtn() {
@@ -25,6 +25,5 @@ public class ProfilePage {
     public String GetUserNameText() {
         return driver.findElement(getUserNameText).getText();
     }
-
 
 }

@@ -47,11 +47,10 @@ public class LogInPage {
         return driver.findElement(ErrorText).getText();
     }
 
-
     public ProfilePage LogIn (String username, String password) {
         this.TypeUserName(username);
         this.TypePassword(password);
-        driver.findElement(logIn2Btn).click();
+        this.clickLogin();
         return new ProfilePage(driver);
     }
 

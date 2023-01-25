@@ -10,7 +10,7 @@ public class LogInPageTest {
 
     private WebDriver driver;
     private LogInPage logInPage;
-    String URL = "https://demoqa.com/login";
+    String URL_LOGIN = "https://demoqa.com/login";
 
     @BeforeTest
     public void setUp() {
@@ -23,7 +23,7 @@ public class LogInPageTest {
 
     @Test (priority = 1)
     public void clickNewUserBtnTest() {
-        driver.get(URL);
+        driver.get(URL_LOGIN);
         SignUpPage signUpPage = logInPage.clickNewUser();
 
         String headingH4 = signUpPage.GetTextH4();
@@ -32,7 +32,7 @@ public class LogInPageTest {
 
     @Test (priority = 2)
     public void logInWrongUsernameTest() {
-        driver.get(URL);
+        driver.get(URL_LOGIN);
         ProfilePage profilePage = logInPage.LogIn("Herrera","@123Qwerty");
 
         String errorText = logInPage.GetErrorText();
@@ -41,7 +41,7 @@ public class LogInPageTest {
 
     @Test (priority = 3)
     public void logInWrongPasswordTest() {
-        driver.get(URL);
+        driver.get(URL_LOGIN);
         ProfilePage profilePage = logInPage.LogIn("Herrera9863","Qwerty");
 
         String errorText = logInPage.GetErrorText();
@@ -50,7 +50,7 @@ public class LogInPageTest {
 
     @Test (priority = 4)
     public void logInEmptyFieldsTest() {
-        driver.get(URL);
+        driver.get(URL_LOGIN);
         ProfilePage profilePage = logInPage.LogIn("","");
 
         String headingH5 = logInPage.GetH5Text();
@@ -59,7 +59,7 @@ public class LogInPageTest {
 
     @Test (priority = 5)
     public void logInTest() {
-        driver.get(URL);
+        driver.get(URL_LOGIN);
         String headingH2 = logInPage.GetH2Text();
         String headingH5 = logInPage.GetH5Text();
         Assert.assertEquals(headingH2, "Welcome,");

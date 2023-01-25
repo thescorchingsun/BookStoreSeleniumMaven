@@ -10,25 +10,5 @@ public class MainClass {
 
         WebDriver driver = new ChromeDriver();
 
-
-/*
-        driver.manage().window().maximize();
-       // driver.manage().window().setSize(new Dimension(900,500));
-       // driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-
-        driver.get("https://demoqa.com/books");
-        driver.get("https://www.selenium.dev/");
-        driver.navigate().back();
-        driver.navigate().forward();
-        driver.navigate().refresh();
-
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getCurrentUrl());
-
-        driver.quit();
-*/
-
     }
-
-
 }
